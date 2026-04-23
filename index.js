@@ -484,19 +484,19 @@
 
 // console.log(factorail(5));
 
-function counter() {
-  let count = 0;
+// function counter() {
+//   let count = 0;
 
-  return function () {
-    count++;
-    console.log(count);
-  };
-}
+//   return function () {
+//     count++;
+//     console.log(count);
+//   };
+// }
 
-const inc = counter();
-inc();
-inc();
-inc();
+// const inc = counter();
+// inc();
+// inc();
+// inc();
 
 // for (let i=1; i<=3; i++){
 //     for(let j=1; j<=3; j++){
@@ -504,3 +504,31 @@ inc();
 // }
 //     console.log(`${i}`);
 // }
+
+// function x() {
+//   console.log("X start");
+//   y();
+//   console.log("X end");
+// }
+
+// function y() {
+//   console.log("Y");
+// }
+
+// x();
+
+// function one() {
+//   two();
+//   console.log("One");
+// }
+
+// function two() {
+//   three();
+//   console.log("Two");
+// }
+
+// function three() {
+//   console.log("Three");
+// }
+
+// one();
