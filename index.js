@@ -498,13 +498,6 @@
 // inc();
 // inc();
 
-// for (let i=1; i<=3; i++){
-//     for(let j=1; j<=3; j++){
-//         console.log(`${j}`);
-// }
-//     console.log(`${i}`);
-// }
-
 // function x() {
 //   console.log("X start");
 //   y();
@@ -532,3 +525,26 @@
 // }
 
 // one();
+
+// function test() {
+//   console.log(a);
+//   var a = 10;
+// }
+// test();
+
+// console.log(a);
+// var a = 5;
+// function a() {}
+let a = 1;
+for (let i=1; i<=3; i++){
+  str='';
+    for(let j=1; j<=3; j++){
+        str = str + ` ${a}` ;
+        a++;
+    }
+    console.log(str);
+}
+
+// var a = 5;
+// function a() {}
+// console.log(a);
