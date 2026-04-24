@@ -542,9 +542,8 @@ for (let i=1; i<=3; i++){
         str = str + ` ${a}` ;
         a++;
     }
-    console.log(str);
+  console.log(str);
 }
-
 // var a = 5;
 // function a() {}
 // console.log(a);
