@@ -632,15 +632,14 @@
 let string ="aabbcddex";
 
 for (let ch of string){
-    count = 0;
+    let count = 0;
     for (let i=0; i<string.length; i++){
         if(ch === string[i]){
             count++;
         }
     }
-    newString = '';
     if(count==1){
-        newString = newString + ch;
-        console.log(newString[0]);
+        console.log(ch);
+        break;
     }
 }
