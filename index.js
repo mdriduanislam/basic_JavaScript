@@ -585,3 +585,62 @@
 //     return secondLargest;
 // }
 // console.log(secondLargest(arr) + ' and the index of ' + arr.indexOf(secondLargest(arr)));
+
+// for (let i = 0; i < 3; i++) {
+//   setTimeout(() => {
+//     console.log(i);
+//   }, i * 1000);
+// }
+
+// for (var i = 0; i < 3; i++) {
+//   setTimeout(() => {
+//     console.log(i);
+//   }, i * 1000);
+// }
+
+// for (var i = 0; i < 3; i++) {
+//   setTimeout(() => {
+//     console.log(i);
+//   }, 0);
+// }
+// console.log(i);
+
+// async function test() {
+//   console.log('A');
+//   await Promise.resolve();
+//   console.log('B');
+// }
+
+// console.log('C');
+// test();
+// console.log('D');
+
+// let string ="aabbcddex";
+
+// for (let ch of string){
+//     count = 0;
+//     for (let i=0; i<string.length; i++){
+//         if(ch === string[i]){
+//             count++;
+//         }
+//     }
+//     if(count==1){
+//         console.log(ch);
+//     }
+// }
+
+let string ="aabbcddex";
+
+for (let ch of string){
+    count = 0;
+    for (let i=0; i<string.length; i++){
+        if(ch === string[i]){
+            count++;
+        }
+    }
+    newString = '';
+    if(count==1){
+        newString = newString + ch;
+        console.log(newString[0]);
+    }
+}
