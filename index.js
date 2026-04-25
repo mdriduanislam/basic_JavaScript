@@ -535,15 +535,53 @@
 // console.log(a);
 // var a = 5;
 // function a() {}
-let a = 1;
-for (let i=1; i<=3; i++){
-  str='';
-    for(let j=1; j<=3; j++){
-        str = str + ` ${a}` ;
-        a++;
-    }
-  console.log(str);
-}
+// for (let i=1; i<=3; i++){
+//  let str='';
+//     let a=0;
+//     for(let j=1; j<=3; j++){
+//         if(i==j) a=i;
+//         else a=0;
+//         str = str + ` ${a}` ;
+//     }
+//   console.log(str);
+// }
 // var a = 5;
 // function a() {}
 // console.log(a);
+
+// for (var i = 0; i < 3; i++) {
+//   setTimeout(() => console.log(i), 1000);
+// }
+
+
+// function printNumbers(n) {
+//       for (let i = 1; i <= n; i++) {
+//        let str = '';
+//         for (let j = 1; j <= i; j++) {
+//          str+= (i==j ? i : 0)+" ";
+//     }
+//     console.log(str);
+// }
+// }
+// printNumbers(5)
+
+
+
+// let arr = [10,5,20,8,20,15,15,25,25];
+
+// function secondLargest(arr) {
+//     let largest = -Infinity;
+//     let secondLargest = -Infinity;
+//     for (let num of arr) {
+//         if(num > largest){
+//             secondLargest = largest;
+//             largest = num;
+//         }
+//         else if(num > secondLargest && num < largest){
+//             secondLargest = num;
+//             num != largest;
+//         }
+//     }
+//     return secondLargest;
+// }
+// console.log(secondLargest(arr) + ' and the index of ' + arr.indexOf(secondLargest(arr)));
