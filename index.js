@@ -629,17 +629,37 @@
 //     }
 // }
 
-let string ="aabbcddex";
+// let string ="aabbcddex";
 
-for (let ch of string){
-    let count = 0;
-    for (let i=0; i<string.length; i++){
-        if(ch === string[i]){
-            count++;
-        }
-    }
-    if(count==1){
-        console.log(ch);
-        break;
-    }
-}
+// for (let ch of string){
+//     let count = 0;
+//     for (let i=0; i<string.length; i++){
+//         if(ch === string[i]){
+//             count++;
+//         }
+//     }
+//     if(count==1){
+//         console.log(ch);
+//         break;
+//     }
+// }
+
+
+// function counter() {
+//   let count = 0;
+
+//   return {
+//     increment: function() {
+//       count++;
+//     },
+//     getCount: function() {
+//       return count;
+//     }
+//   };
+// }
+
+// const c = counter();
+// c.increment();
+// c.increment();
+// console.log(c.getCount());
+
