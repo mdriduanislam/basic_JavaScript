@@ -674,14 +674,7 @@
 
 function sortAddedArray(arr1, arr2){
     let mergedArray = [...arr1, ...arr2];
-    let sortedArray = [];
-    let min = mergedArray[0];
-    for(let i=0; i<mergedArray.length;i++){
-        if(min>mergedArray[i]){
-            min = mergedArray[i];
-        }
-        sortedArray.push(min);
-    }
+    let sortedArray = mergedArray.sort((a, b) => a - b);
     return sortedArray;
 }
 console.log(sortAddedArray([4,2,3], [1,6,5]));
