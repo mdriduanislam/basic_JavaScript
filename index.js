@@ -663,3 +663,25 @@
 // c.increment();
 // console.log(c.getCount());
 
+// function addUniqueNumbers(arr, num) {
+//     if (!arr.includes(num)){
+//         arr.push(num);
+//     }
+//     console.log(arr);
+// }
+
+// addUniqueNumbers([1,2,3], 2);
+
+function sortAddedArray(arr1, arr2){
+    let mergedArray = [...arr1, ...arr2];
+    let sortedArray = [];
+    let min = mergedArray[0];
+    for(let i=0; i<mergedArray.length;i++){
+        if(min>mergedArray[i]){
+            min = mergedArray[i];
+        }
+        sortedArray.push(min);
+    }
+    return sortedArray;
+}
+console.log(sortAddedArray([4,2,3], [1,6,5]));
