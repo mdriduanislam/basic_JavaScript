@@ -672,9 +672,20 @@
 
 // addUniqueNumbers([1,2,3], 2);
 
-function sortAddedArray(arr1, arr2){
-    let mergedArray = [...arr1, ...arr2];
-    let sortedArray = mergedArray.sort((a, b) => a - b);
-    return sortedArray;
+// function sortAddedArray(arr1, arr2){
+//     let mergedArray = [...arr1, ...arr2];
+//     let sortedArray = mergedArray.sort((a, b) => a - b);
+//     return sortedArray;
+// }
+// console.log(sortAddedArray([4,2,3], [1,6,5]));
+
+
+let matrix = [];
+// let row = matrix.length;
+// let col = matrix[0].length;
+for(let j=1; j<=3; j++){
+    for(let i=1; i<=3; i++){
+        matrix = matrix + `${matrix[i][j]}`;
+    }
 }
-console.log(sortAddedArray([4,2,3], [1,6,5]));
+console.log(matrix);
