@@ -680,12 +680,25 @@
 // console.log(sortAddedArray([4,2,3], [1,6,5]));
 
 
-let matrix = [];
-// let row = matrix.length;
-// let col = matrix[0].length;
-for(let j=1; j<=3; j++){
-    for(let i=1; i<=3; i++){
-        matrix = matrix + `${matrix[i][j]}`;
+// let matrix = [];
+// let a = 0;
+// for(let j=0; j<3; j++){
+//     for(let i=0; i<3; i++){
+//         a++;
+//         matrix.push(a);
+//     }
+// }
+// console.log(matrix);
+
+function matrix(n){
+    let value;
+    for (let row=0; row<n; row++){
+        let line = '';
+        for(let col=0; col<n; col++){
+            value = row + col*n +1;
+            line = line + value +' ';
+        }
+        console.log(line);
     }
 }
-console.log(matrix);
+matrix(3);
