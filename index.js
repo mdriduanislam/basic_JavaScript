@@ -712,14 +712,16 @@
 // console.log(secondHalf);
 
 function zigZagMatrix(n){
-    let a = 0;
     for(let row=0; row<n; row++){
         let line = '';
         for(let col=0; col<n; col++){
-            a++
-            line = line + a + ' ';
+            if(row%2 == 0){
+            line = line + (row*n+col+1) + ' ';}
+            else{
+                line = line + (row*n+n+-col) + ' ';
+            }
             }
             console.log(line);
         }
     }
-zigZagMatrix(3);
+zigZagMatrix(4);
