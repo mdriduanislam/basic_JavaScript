@@ -703,12 +703,21 @@
 // }
 // matrix(3);
 
+
+// let arr =[1,2,3,4,5,6,7];
+// let mid = Math.floor(arr.length / 2);
+// let firstHalf = arr.slice(0, mid+1);
+// let secondHalf = arr.slice(mid);
+// console.log(firstHalf);
+// console.log(secondHalf);
+
 function zigZagMatrix(n){
+    let a = 0;
     for(let row=0; row<n; row++){
         let line = '';
-        let a = 0;
         for(let col=0; col<n; col++){
-            line = line + a++ + ' ';
+            a++
+            line = line + a + ' ';
             }
             console.log(line);
         }
