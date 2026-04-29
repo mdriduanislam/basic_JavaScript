@@ -690,15 +690,27 @@
 // }
 // console.log(matrix);
 
-function matrix(n){
-    let value;
-    for (let row=0; row<n; row++){
+// function matrix(n){
+//     let value;
+//     for (let row=0; row<n; row++){
+//         let line = '';
+//         for(let col=0; col<n; col++){
+//             value = row + col*n +1;
+//             line = line + value +' ';
+//         }
+//         console.log(line);
+//     }
+// }
+// matrix(3);
+
+function zigZagMatrix(n){
+    for(let row=0; row<n; row++){
         let line = '';
+        let a = 0;
         for(let col=0; col<n; col++){
-            value = row + col*n +1;
-            line = line + value +' ';
+            line = line + a++ + ' ';
+            }
+            console.log(line);
         }
-        console.log(line);
     }
-}
-matrix(3);
+zigZagMatrix(3);
