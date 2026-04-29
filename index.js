@@ -711,17 +711,35 @@
 // console.log(firstHalf);
 // console.log(secondHalf);
 
-function zigZagMatrix(n){
+// function zigZagMatrix(n){
+//     for(let row=0; row<n; row++){
+//         let line = '';
+//         for(let col=0; col<n; col++){
+//             if(row%2 == 0){
+//             line = line + (row*n+col+1) + ' ';}
+//             else{
+//                 line = line + (row*n+n-col) + ' ';
+//             }
+//             }
+//             console.log(line);
+//         }
+//     }
+// zigZagMatrix(3);
+
+
+function reverseZigZagMatrix(n){
     for(let row=0; row<n; row++){
         let line = '';
         for(let col=0; col<n; col++){
-            if(row%2 == 0){
-            line = line + (row*n+col+1) + ' ';}
+            if(col%2 == 0){
+            line = line + (row+ col*n +1) + ' ';
+}
             else{
-                line = line + (row*n+n+-col) + ' ';
+                line = line + (col*n+n-row) + ' ';
             }
             }
             console.log(line);
         }
     }
-zigZagMatrix(4);
+reverseZigZagMatrix(3);
+
