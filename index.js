@@ -727,19 +727,34 @@
 // zigZagMatrix(3);
 
 
-function reverseZigZagMatrix(n){
-    for(let row=0; row<n; row++){
-        let line = '';
-        for(let col=0; col<n; col++){
-            if(col%2 == 0){
-            line = line + (row+ col*n +1) + ' ';
-}
-            else{
-                line = line + (col*n+n-row) + ' ';
-            }
-            }
-            console.log(line);
-        }
-    }
-reverseZigZagMatrix(3);
+// function reverseZigZagMatrix(n){
+//     for(let row=0; row<n; row++){
+//         let line = '';
+//         for(let col=0; col<n; col++){
+//             if(col%2 == 0){
+//             line = line + (row+ col*n +1) + ' ';
+// }
+//             else{
+//                 line = line + (col*n+n-row) + ' ';
+//             }
+//             }
+//             console.log(line);
+//         }
+//     }
+// reverseZigZagMatrix(3);
 
+var createCounter = function(init) {
+    const initialValue = init;
+    return object = {
+       increment(){
+        return ++init;
+       },
+       decrement(){
+        return --init;
+       },
+       reset(){
+        init = initialValue;
+        return init;
+       }
+    } 
+};
