@@ -800,113 +800,241 @@
 // console.log(productExceptSelf([1,2,3,4]));
 
 
-const restaurants = [
-{ id: 1, name: "Pizza Place", menu: [{ name: "Pepperoni Pizza", price: 12 }] },
-{ id: 2, name: "Sushi House", menu: [{ name: "Salmon Sushi", price: 15 }] }
-];
-const orders = [ ];
-const reviews = [ ];
-// Discount in percentage
-const discountCodes = { "SAVE10": 10, "WELCOME15": 15 };
+// const restaurants = [
+// { id: 1, name: "Pizza Place", menu: [{ name: "Pepperoni Pizza", price: 12 }] },
+// { id: 2, name: "Sushi House", menu: [{ name: "Salmon Sushi", price: 15 }] }
+// ];
+// const orders = [ ];
+// const reviews = [ ];
+// // Discount in percentage
+// const discountCodes = { "SAVE10": 10, "WELCOME15": 15 };
 
 
-function getfoodPrice(name,itemName){
-    let restaurantFound = false;
-       for(let i=0;i<restaurants.length;i++){
-           if(name===restaurants[i].name){
-               restaurantFound = true;
-                for(let j=0;j<restaurants[i].menu.length;j++){
-                    if(itemName===restaurants[i].menu[j].name){
-                        return restaurants[i].menu[j].price;
-                    }
-                }
-               return 'Item not found';
-           }
-       }
-       if(!restaurantFound){
-           return 'Restaurant not found';
-       }
-}
+// function getfoodPrice(name,itemName){
+//     let restaurantFound = false;
+//        for(let i=0;i<restaurants.length;i++){
+//            if(name===restaurants[i].name){
+//                restaurantFound = true;
+//                 for(let j=0;j<restaurants[i].menu.length;j++){
+//                     if(itemName===restaurants[i].menu[j].name){
+//                         return restaurants[i].menu[j].price;
+//                     }
+//                 }
+//                return 'Item not found';
+//            }
+//        }
+//        if(!restaurantFound){
+//            return 'Restaurant not found';
+//        }
+// }
 
-function placeOrder(customer, restaurantName, itemName, discountCode) {
-  const price = getfoodPrice(restaurantName, itemName);
+// function placeOrder(customer, restaurantName, itemName, discountCode) {
+//   const price = getfoodPrice(restaurantName, itemName);
 
-  if (typeof price !== "number") {
-    throw new Error(price);
+//   if (typeof price !== "number") {
+//     throw new Error(price);
+//   }
+
+//   const order = {
+//     id: orders.length + 1,
+//     customer,
+//     restaurant: restaurantName,
+//     item: itemName,
+//     status: "pending",
+//   };
+
+//   if (discountCode) {
+//     if (discountCodes[discountCode]) {
+//       const discountPercent = discountCodes[discountCode];
+//       order.price = price - (price * discountPercent) / 100;
+//     } else {
+//       throw new Error("Invalid discount code");
+//     }
+//   } else {
+//     order.price = price;
+//   }
+
+//   orders.push(order);
+//   console.log("✅ Order placed:", order);
+//   return `Order placed successfully. Order ID: ${order.id}`;
+// }
+
+// function totalSalesByRestaurant(restaurantName) {
+//     const totalOrder = orders.filter(order => order.restaurant === restaurantName);
+//     const totalSales = totalOrder.reduce((sum, order) => sum + order.price, 0);
+//     return totalSales;
+// }
+
+// function submitReview(orderId, restaurantName, rating, comment) {
+//     const order = orders.find(o => o.id === orderId && o.restaurant === restaurantName);
+//     if (!order) {
+//         throw new Error("Order not found for the given restaurant");
+//     }
+//     if (rating < 1 || rating > 5) {
+//         throw new Error("Rating must be between 1 and 5");
+//     }
+//     if(comment.length < 20) {
+//         throw new Error("Comment must be at least 20 characters long");
+//     }
+
+//     const review = {
+//         orderId,
+//         restaurantName,
+//         rating,
+//         comment
+//     };
+//     reviews.push(review);
+//     console.log('Review submitted successfully');
+// }
+
+// try {
+//   console.log(placeOrder("Alice", "Pizza Place", "Pepperoni Pizza", "SAVE10"));
+//   console.log(placeOrder("Bob", "Sushi House", "Salmon Sushi", "WELCOME15"));
+//   console.log(placeOrder("Bob", "Sushi House", "Salmon Sushi", "SAVE10"));
+//   console.log(orders);
+//   console.log("Total Sales at Pizza Place:", totalSalesByRestaurant("Pizza Place"));
+//   console.log("Total Sales at Sushi House:", totalSalesByRestaurant("Sushi House")); 
+//   console.log(submitReview(1, "Pizza Place", 5, "The pizza was absolutely delicious and the service was excellent!"));
+//   console.log(submitReview(2, "Sushi House", 4, "Great sushi but a bit pricey."));
+//   console.log(reviews);
+//   console.log(submitReview(1, "Pizza Place", 6, "The pizza was absolutely amazing! Will order again."));
+//   console.log(submitReview(3, "Sushi House", 4, "Fresh and tasty sushi, though delivery was a bit late."));
+//   console.log(placeOrder("Charlie", "Pizza Place", "Pepperoni Pizza")); 
+//   console.log(placeOrder("David", "Pizza Place", "Veggie Pizza")); 
+//   console.log(orders);
+// } catch (error) {
+//   console.error("❌ Error:", error.message);
+// }
+
+// console.log(getfoodPrice("Pizza Place", "Pepperoni Pizza")); // 12
+// console.log(getfoodPrice("Sushi House", "Salmon Sushi")); // 15
+// console.log(getfoodPrice("Pizza Place", "Burger")); // Item not found
+// console.log(getfoodPrice("Burger Shop", "Cheeseburger")); // Restaurant not found
+
+
+
+const userDatabase = (function () {
+const users = [ ];
+const transactions = [];
+let processingFee = 0;
+
+return {
+
+registerUser: function (name, pin) {
+    if(!name || !pin){
+        throw new Error('Name and PIN are required');
+    }
+    if(typeof pin !== 'number' || pin.toString().length !==4){
+        throw new Error('PIN must be a 4-digit number');
+    }
+    const newUser = {
+        id: users.length + 1,
+        name,
+        pin,  
+        balance: 0
+    }; 
+    users.push(newUser); 
+    console.log(`✅ User '${name}' registered successfully!`);
+    return true;
+},
+
+loginUser: function (name, pin) {
+  const user = users.find(u => u.name === name && u.pin === pin);
+  if (!user) {
+    console.log("❌ Invalid username or PIN");
+    return null;
   }
+  console.log(`✅ User '${name}' logged in successfully!`);
+  return user;
+},
 
-  const order = {
-    id: orders.length + 1,
-    customer,
-    restaurant: restaurantName,
-    item: itemName,
-    status: "pending",
-  };
-
-  if (discountCode) {
-    if (discountCodes[discountCode]) {
-      const discountPercent = discountCodes[discountCode];
-      order.price = price - (price * discountPercent) / 100;
-    } else {
-      throw new Error("Invalid discount code");
+addMoney: function (name,pin, amount) {
+    const user = this.loginUser(name,pin);
+    if(user){
+      user.balance += amount;
+      console.log(`✅ Added $${amount} to '${name}' account. New balance: $${user.balance}`);
     }
-  } else {
-    order.price = price;
+    if(!user){
+      console.log('❌ Unable to add money. Your money is refunded.')   
+    }
+},
+
+checkBalance: function (name,pin) {
+    const user = this.loginUser(name,pin);
+    if(!user){
+      console.log('❌ Unable to check balance. Please login again.');
+      return;
+    }
+    console.log(`'${name}' balance: $${user.balance}`);
+    return user.balance;
+},
+
+sendMoney: function (fromName, fromPin, toName, amount) {
+  const sender = this.loginUser(fromName, fromPin);
+  if (!sender) {
+    throw new Error('You don\'t have permission to send money');
   }
+  const fee = 15;
+  if (sender.balance < amount + fee) {
+    throw new Error('Insufficient balance to send money');
+  }
+  const receiver = users.find(u => u.name === toName);
+  if (!receiver) {
+    throw new Error('Recipient not found');
+  }
+  sender.balance -= (amount + fee);
+  receiver.balance += amount;
+  processingFee = processingFee + fee;
+  console.log(`✅ Transferred $${amount} from '${fromName}' to '${toName}'`);
+  const history = {
+    sender: fromName,
+    receiver: toName,
+    amount: amount,
+    fee,
+  }
+  transactions.push(history);
+  console.log(`✅ Transaction recorded: $${amount} from '${fromName}' to '${toName}'`);
+  return history;
+},
 
-  orders.push(order);
-  console.log("✅ Order placed:", order);
-  return `Order placed successfully. Order ID: ${order.id}`;
-}
+transactionsHistory: function (name,pin, fromName, fromPin, toName, amount) {
+   if(transactions.length===0){
+    console.log('No transactions found');
+    return [];
+   }
+   console.log('Transaction History:');
+   transactions.forEach((tx, index) => {
+    console.log(`${index + 1}. From: ${tx.sender}, To: ${tx.receiver}, Amount: $${tx.amount}`);
+   });
+   return [...transactions];
+},
 
-function totalSalesByRestaurant(restaurantName) {
-    const totalOrder = orders.filter(order => order.restaurant === restaurantName);
-    const totalSales = totalOrder.reduce((sum, order) => sum + order.price, 0);
-    return totalSales;
-}
+getProcessingFees() {
+      return processingFee;
+  },
 
-function submitReview(orderId, restaurantName, rating, comment) {
-    const order = orders.find(o => o.id === orderId && o.restaurant === restaurantName);
-    if (!order) {
-        throw new Error("Order not found for the given restaurant");
+getAllUsers: function () {
+      return [...users];
     }
-    if (rating < 1 || rating > 5) {
-        throw new Error("Rating must be between 1 and 5");
-    }
-    if(comment.length < 20) {
-        throw new Error("Comment must be at least 20 characters long");
-    }
-
-    const review = {
-        orderId,
-        restaurantName,
-        rating,
-        comment
-    };
-    reviews.push(review);
-    console.log('Review submitted successfully');
 }
+} )();
 
 try {
-  console.log(placeOrder("Alice", "Pizza Place", "Pepperoni Pizza", "SAVE10"));
-  console.log(placeOrder("Bob", "Sushi House", "Salmon Sushi", "WELCOME15"));
-  console.log(placeOrder("Bob", "Sushi House", "Salmon Sushi", "SAVE10"));
-  console.log(orders);
-  console.log("Total Sales at Pizza Place:", totalSalesByRestaurant("Pizza Place"));
-  console.log("Total Sales at Sushi House:", totalSalesByRestaurant("Sushi House")); 
-  console.log(submitReview(1, "Pizza Place", 5, "The pizza was absolutely delicious and the service was excellent!"));
-  console.log(submitReview(2, "Sushi House", 4, "Great sushi but a bit pricey."));
-  console.log(reviews);
-  console.log(submitReview(1, "Pizza Place", 6, "The pizza was absolutely amazing! Will order again."));
-  console.log(submitReview(3, "Sushi House", 4, "Fresh and tasty sushi, though delivery was a bit late."));
-  console.log(placeOrder("Charlie", "Pizza Place", "Pepperoni Pizza")); 
-  console.log(placeOrder("David", "Pizza Place", "Veggie Pizza")); 
-  console.log(orders);
+  userDatabase.registerUser("Alice", 1234);
+  userDatabase.registerUser("Bob", 5678);
+  userDatabase.addMoney("Alice", 1234, 500);
+  userDatabase.checkBalance("Alice", 1234);
+  userDatabase.checkBalance("Bob", 5678);
+  userDatabase.sendMoney("Alice", 1234, "Bob", 150);
+  userDatabase.checkBalance("Alice", 1234);
+  userDatabase.checkBalance("Bob", 5678);
+  userDatabase.transactionsHistory();
+  userDatabase.sendMoney("Alice", 1234, "Bob", 150);
+  userDatabase.checkBalance("Alice", 1234);
+  userDatabase.checkBalance("Bob", 5678);
+  userDatabase.transactionsHistory();
+  console.log(userDatabase.getAllUsers());
+  console.log(userDatabase.getProcessingFees());
 } catch (error) {
-  console.error("❌ Error:", error.message);
+  console.error("❌ " + error.message);
 }
-
-console.log(getfoodPrice("Pizza Place", "Pepperoni Pizza")); // 12
-console.log(getfoodPrice("Sushi House", "Salmon Sushi")); // 15
-console.log(getfoodPrice("Pizza Place", "Burger")); // Item not found
-console.log(getfoodPrice("Burger Shop", "Cheeseburger")); // Restaurant not found
