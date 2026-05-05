@@ -800,23 +800,68 @@
 // console.log(productExceptSelf([1,2,3,4]));
 
 
-var reverseVowels = function(s) {
-    let arr = s.split('');
-    let left = 0;
-    let right = arr.length - 1;
-    let vowels = "aeiouAEIOU";
-    while (left < right) {
-        if (!vowels.includes(arr[left])) {
-            left++;
-        } 
-        else if (!vowels.includes(arr[right])) {
-            right--;
-        } 
-        else {
-            [arr[left], arr[right]] = [arr[right], arr[left]];
-            left++;
-            right--;
-        }
-    }
-    return arr.join('');
-};
+// var reverseVowels = function(s) {
+//     let arr = s.split('');
+//     let left = 0;
+//     let right = arr.length - 1;
+//     let vowels = "aeiouAEIOU";
+//     while (left < right) {
+//         if (!vowels.includes(arr[left])) {
+//             left++;
+//         } 
+//         else if (!vowels.includes(arr[right])) {
+//             right--;
+//         } 
+//         else {
+//             [arr[left], arr[right]] = [arr[right], arr[left]];
+//             left++;
+//             right--;
+//         }
+//     }
+//     return arr.join('');
+// };
+
+// let arr =[12,23,34,56,67,60,78];
+// let filteredArr = [];
+// for(let i=0; i<arr.length; i++){
+//     if(arr[i]>60){
+//         filteredArr.push(arr[i]);
+//     }
+// }
+// // for (let num of arr){
+// //     if(num>60){
+// //         filteredArr.push(num);
+// //     }
+// // }
+// console.log(filteredArr);
+
+// let arr =[12,23,34,'c',56,'e',67,60,78];
+// let numArr =[];
+// let strArr = [];
+// for ( let element of arr){
+//     if(typeof element === 'number'){
+//         numArr.push(element);
+//     }
+//     else{
+//         strArr.push(element);
+//     }
+// }
+// console.log(numArr);
+// console.log(strArr);
+
+// let str1 = 'hellos';
+// let str2 = 1800;
+// let str3 = str2.toString();
+// let result = '';
+// console.log(str1);
+// console.log(str3);
+// let max = Math.max(str1.length, str3.length);
+// for(i=0; i<max; i++){
+//     if(i<str1.length){
+//         result += str1[i];
+//     }
+//     if(i<str3.length){
+//         result += str3[i];
+//     }
+// }
+// console.log(result);
