@@ -865,3 +865,7 @@
 //     }
 // }
 // console.log(result);
+
+
+let arr = [NaN];
+console.log(arr.includes(NaN));
