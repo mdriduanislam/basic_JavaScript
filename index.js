@@ -867,32 +867,41 @@
 // console.log(result);
 
 
-let arr = [NaN];
-console.log(arr.includes(NaN));
+// let arr = [NaN];
+// console.log(arr.includes(NaN));
 
-var reduce = function(nums, fn, init) {
-    if(nums.length==0){
-        return init;
-    }
-    else if(nums.length==1){
-        return 0;
-    }
-    else if(init >= 0 || init ){
-        for(let i=0; i<nums.length; i++){
-            init = init+nums[i];
-        }
-        return init;
-    }
-    else if(init == 100){
-        for(let i=0; i<nums.length; i++){
-            init = init+(nums[i]*nums[i]);
-        }
-        return init;
-    }
-    else if(init ==25 ){
-        for(let i=0; i<nums.length; i++){
-            init = (init+nums[i])%2;
-        }
-        return init;
-    }
-}
+// var reduce = function(nums, fn, init) {
+//     if(nums.length==0){
+//         return init;
+//     }
+//     else if(nums.length==1){
+//         return 0;
+//     }
+//     else if(init >= 0 || init ){
+//         for(let i=0; i<nums.length; i++){
+//             init = init+nums[i];
+//         }
+//         return init;
+//     }
+//     else if(init == 100){
+//         for(let i=0; i<nums.length; i++){
+//             init = init+(nums[i]*nums[i]);
+//         }
+//         return init;
+//     }
+//     else if(init ==25 ){
+//         for(let i=0; i<nums.length; i++){
+//             init = (init+nums[i])%2;
+//         }
+//         return init;
+//     }
+// }
+
+// var join = function(arr1, arr2) {
+//     let arr3 = [...arr1,...arr2];
+//     let joinedArr = [...new Set(arr3)];
+//     return joinedArr;
+// };
+
+// console.log(join([1,2,3], [2,3,4]));
+
