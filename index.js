@@ -906,18 +906,32 @@
 // console.log(join([1,2,3], [2,3,4]));
 
 let arr = [4,1,3,7,5,11,9];
-let min = arr[0];
 
-function sortArray(arr){
-    for(let i=0; i<arr.length; i++){
-        let min = arr[i];
-        for(let j=i+1; j<arr.length; j++){
-            if(arr[i]>arr[j]){
-                min = arr[j];
-                arr[j] = arr[i];
-                arr[i] = min;
+// function sortArray(arr){
+//     for(let i=0; i<arr.length; i++){
+//         for(let j=i+1; j<arr.length; j++){
+//             if(arr[i]>arr[j]){
+//                 let min = arr[j];
+//                 arr[j] = arr[i];
+//                 arr[i] = min;
+//             }
+//         }
+//     }
+//     return arr;
+// }
+// console.log(sortArray(arr));
+
+function sortArray(arr) {
+    for (let i=0; i<arr.length; i++) {
+        for (let j=i+1; j<arr.length; j++) {
+            if (arr[i] > arr[j]) {
+                let temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
             }
-
         }
     }
+    return arr;
 }
+
+console.log(sortArray(arr));
